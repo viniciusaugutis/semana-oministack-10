@@ -53,7 +53,6 @@ class DevController {
     let dev = await Dev.findById(id);
 
     const {
-      github_username,
       latitude = dev.location.coordinates[1],
       longitude = dev.location.coordinates[0],
       techs,
@@ -61,7 +60,7 @@ class DevController {
 
     if (dev) {
       const apiResponse = await axios.get(
-        `https://api.github.com/users/${github_username}`
+        `https://api.github.com/users/${dev.github_username}`
       );
 
       const { name = login, avatar_url, bio } = apiResponse.data;
@@ -74,7 +73,6 @@ class DevController {
       };
 
       dev = await dev.update({
-        github_username,
         name,
         avatar_url,
         bio,
