@@ -4,13 +4,14 @@ import "./App.css";
 import "./Sidebar.css";
 import "./Main.css";
 
-import api from './services/api';
+import api from "./services/api";
 
 //Componente
 //Estado
 //Propriedade
 
 function App() {
+  const [devs, setDevs] = useState([]);
   const [github_username, setGithubUsername] = useState("");
   const [techs, setTechs] = useState("");
   const [latitude, setLatitude] = useState("");
@@ -30,19 +31,29 @@ function App() {
         timeout: 30000 //timeout de 30s na position
       }
     );
-  });
+  }, []);
+
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get("/devs");
+      setDevs(response.data);
+    }
+
+    loadDevs();
+  }, []);
 
   async function handleAddDev(e) {
     e.preventDefault();
 
-    const response = await api.post('/devs', {
+    const response = await api.post("/devs", {
       github_username,
       techs,
       latitude,
       longitude
     });
-    
-    console.log(response);
+
+    setGithubUsername("");
+    setTechs("");
   }
 
   return (
@@ -103,61 +114,24 @@ function App() {
 
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars3.githubusercontent.com/u/18177236?s=460&v=4" />
-              <div className="user-info">
-                <strong>Vinícius Augutis</strong>
-                <span>NodeJS, Java, Angular e SpringBoot</span>
-              </div>
-            </header>
-            <p>Especialista desenvolvedor na Sotran</p>
-            <a href="https://github.com/viniciusaugutis">
-              Acessar perfil no github
-            </a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars3.githubusercontent.com/u/18177236?s=460&v=4" />
-              <div className="user-info">
-                <strong>Vinícius Augutis</strong>
-                <span>NodeJS, Java, Angular e SpringBoot</span>
-              </div>
-            </header>
-            <p>Especialista desenvolvedor na Sotran</p>
-            <a href="https://github.com/viniciusaugutis">
-              Acessar perfil no github
-            </a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars3.githubusercontent.com/u/18177236?s=460&v=4" />
-              <div className="user-info">
-                <strong>Vinícius Augutis</strong>
-                <span>NodeJS, Java, Angular e SpringBoot</span>
-              </div>
-            </header>
-            <p>Especialista desenvolvedor na Sotran</p>
-            <a href="https://github.com/viniciusaugutis">
-              Acessar perfil no github
-            </a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars3.githubusercontent.com/u/18177236?s=460&v=4" />
-              <div className="user-info">
-                <strong>Vinícius Augutis</strong>
-                <span>NodeJS, Java, Angular e SpringBoot</span>
-              </div>
-            </header>
-            <p>Especialista desenvolvedor na Sotran</p>
-            <a href="https://github.com/viniciusaugutis">
-              Acessar perfil no github
-            </a>
-          </li>
+          {devs.map(dev => {
+            /*aqui tem que ser parenteses mesmo e não chaves porque to declarando o retorno da funcao*/
+            return (
+              <li key={dev._id} className="dev-item">
+                <header>
+                  <img src={dev.avatar_url} alt={dev.name} />
+                  <div className="user-info">
+                    <strong>{dev.name}</strong>
+                    <span>{dev.techs.join(", ")}</span>
+                  </div>
+                </header>
+                <p>{dev.bio}</p>
+                <a href={`https://github.com/${dev.github_username}`}>
+                  Acessar perfil no github
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </main>
     </div>
