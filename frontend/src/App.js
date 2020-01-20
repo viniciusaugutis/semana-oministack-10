@@ -4,7 +4,10 @@ import "./App.css";
 import "./Sidebar.css";
 import "./Main.css";
 
+import "./components/DevItem";
+
 import api from "./services/api";
+import DevItem from "./components/DevItem";
 
 //Componente
 //Estado
@@ -116,24 +119,10 @@ function App() {
 
       <main>
         <ul>
-          {devs.map(dev => {
+          {devs.map(dev => (
+            <DevItem key={dev._id} dev={dev} />
             /*aqui tem que ser parenteses mesmo e não chaves porque to declarando o retorno da funcao*/
-            return (
-              <li key={dev._id} className="dev-item">
-                <header>
-                  <img src={dev.avatar_url} alt={dev.name} />
-                  <div className="user-info">
-                    <strong>{dev.name}</strong>
-                    <span>{dev.techs.join(", ")}</span>
-                  </div>
-                </header>
-                <p>{dev.bio}</p>
-                <a href={`https://github.com/${dev.github_username}`}>
-                  Acessar perfil no github
-                </a>
-              </li>
-            );
-          })}
+          ))}
         </ul>
       </main>
     </div>
