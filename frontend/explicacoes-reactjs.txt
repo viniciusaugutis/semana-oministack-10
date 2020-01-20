@@ -1,0 +1,80 @@
+Criar estrutura do projeto em React
+
+yarn create react-app frontend (Para criar um projeto novo em reactjs)
+ou
+npx create-react-app frontend
+
+Pasta public são arquivos que precisam ficar publicos na nossa aplicação, como favicon, icones, imagens, index.html, etc.
+
+Robots.txt para falar para google quais páginas queremos ranquear.
+
+Conceitos do react:
+
+yarn start: inicia o projeto em React
+
+div id root -> todo HTML e CSS da nossa aplicação é gerada a partir de Javascript e HTML está dentro do javascript.
+
+Arquivo index.js: principal carregado pelo React
+
+Devo importar o React em todo arquivo JS que vai utilizar HTML dentro dele
+
+import React from 'react'; //es models: Node 13 vai começar suportar isso
+
+//JSX: <App />  Javascript + HTML
+
+Sempre que usar JSX precisa importar o react
+
+ReactDom: da a habilidade do react se comunicar com a árvore de elementos a partir dela.
+
+import ReactDOM from 'react-dom';
+
+React é unico para todas aplicações web e mobile, mas react dom varia de cada ambiente. ReactNative para mobile e ReactTV para tv.
+
+ReactDOM.render(<App />, document.getElementById('root')); //Padrão em toda aplicação REACT
+
+jsx react usa muito que é utilizar HTML dentro do javascript.
+_______________________________________________________________________________________________________________________
+3 conceitos fundamentais do REACT
+
+
+//Componente: Bloco isolado de HTML, Css e JS, o qual não interfere no restante da aplicação.
+Função que retorna HTML ou Css e pode ser renderizado.
+Quando estiver repetindo trechos de código ou isolar parte da aplicação você deve criar um componente. 
+Componente Sempre letra maiuscula primeiro
+
+Regras: Colocar um componente por arquivo, para ficar melhor a manutenção.
+
+E toda vez que for trabalhar com HTML dentro do javascript preciso importar o React. 
+import React from 'react'
+
+Não posso ter 3 componentes sem ter um em volta deles: com isso posso colocar uma div em volta deles
+
+Fragment: tag sem nomenclatura: <>  </>
+
+//Estado: Informações mantidads pelo componente (Lembrar: imutabilidade).
+
+Uma informação que componente vai manipular: 
+
+Toda função que é própria do componente eu crio dentro dele mesmo.
+
+React não fica monitorando alterações de variáveis dentro do componente. Para isso precisa utilizar o conceito chamado de estado.
+
+useState: função utilizado pelo react para criar um estado, informação que vai ser lida pelo componente.
+
+useState retorna um vetor com duas informações dentro dela: [counter, setCounter]: 
+Ou seja, ele retorna a variável e uma função para alterar o valor da variável.
+Nunca vou conseguir alterar o valor pelo estado, somente pela função dele.
+
+Por quê isso?
+Porque o React aposta no conceito da imutabilidade, ou seja, eu nunca vou alterar um dado, eu sempre vou criar um novo a partir do valor anterior dele. 
+
+
+
+//Propriedade: Informações que um componente pai passa para um componente filho
+
+São os atributos para um componente e propriedade
+
+props: são todas propriedades passadas ao componente
+
+
+
