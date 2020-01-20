@@ -87,4 +87,8 @@ Programação imperativa:
 
 Vou criar um estado e meu componente precisa saber se comportar baseado naquele estado
 
+Axios é uma otima alternativa para fazer requisicoes HTTP
+
+Devs.push não existe no react. Ou seja, sempre tenho que criar a informação do zero mesmo.
+
 
