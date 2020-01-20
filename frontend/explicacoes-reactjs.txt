@@ -75,6 +75,16 @@ Porque o React aposta no conceito da imutabilidade, ou seja, eu nunca vou altera
 São os atributos para um componente e propriedade
 
 props: são todas propriedades passadas ao componente
+_______________________________________________________________________________________________________________________
 
+useEffect: basicamente serve para disparar uma função quando alguma coisa ocorrer.
+Primeiro parametro: qual função ele vai executar
+Segundo parametro: quando ela vai executar (um vetor) se vetor for vazio ela vai ser executada uma unica vez
+Se colocar variavel dentro do vetor, sempre que ela alterar o valor a função vai ser chamada.
+Tipo um whatch no AngularJS
+
+Programação imperativa:
+
+Vou criar um estado e meu componente precisa saber se comportar baseado naquele estado
 
 
