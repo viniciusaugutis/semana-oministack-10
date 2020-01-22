@@ -29,3 +29,30 @@ Sempre com aspas o elemento e virgula porque ele é javascript.
 
 Cada elemento precisa ter sua propria estilização. Ele não herda do de cima que é pai, como no HTML.
 
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+
+app.json contem algumas informações do aplicativo, como nome, versão sdk do expo, quais versões, landscape, etc.
+
+app.js - arquivo principal da aplicação
+
+assets: icone e splash do projeto.
+
+babel.config: build e compilação do react
+
+docs.expo.io: DOCUMENTAÇÃO DO Expo
+
+Navegação no expo:
+
+React Navigation: Instalação
+
+1: yarn add react-navigation
+
+2: expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-contex
+_____________________________________________________________
+
+Navegação por pilhas: react navigation stack - navegação via botão, clica em uma página vai para outra, clica em outro botão volta uma página
+
+1: yarn add react-navigation-stack @react-native-community/masked-view react-native-safe-area-context
+
