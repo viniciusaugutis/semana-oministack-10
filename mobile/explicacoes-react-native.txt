@@ -1,0 +1,31 @@
+Expo: Conjunto de ferramentas ou bibliotecas para o React Native, prontas para utilizar a maioria das funcionalidades do celular.
+Expo já traz tudo pronto.
+
+Não precisamos nos preocupar em gerar o aplicativo para Android e IOS, ja que o app do Expo instalado tem tudo o que precisamos e assim usamos apenas o React.
+
+Com expo nós instalamos um aplicativo no celular chamado Expo, e dentro dele tudo o que precisamos para desenvolver em Native está instalado, como api de mapas, geolocalização, camera, sensores, etc.
+
+yarn global add expo-cli: Instalar expo na máquina
+
+expo init mobile: Iniciar mobile
+
+yarn start: inicia a aplicação
+
+Diferenças REACTJS E REACT Native
+
+no react native usa sempre html, já no native não temos essa oportunidade. Todos elementos visuais não tem resultado semântico, porque não importa SEO etc.
+
+Tags não tem estilização própria. Todo texto tem o mesmo tamanho e controlamos via css.
+
+Não temos classes nem ids no native. Nós utilizamos sempre o atributo chamado style, que contém a estilização daquele elemento específico.
+
+StyleSheet: classe usada para estilização e propriedades específicas.
+
+css não posso colocar com Hifens e deixo sem Hifens
+
+fontWeight: bold ao inves de font-weight: 
+
+Sempre com aspas o elemento e virgula porque ele é javascript.
+
+Cada elemento precisa ter sua propria estilização. Ele não herda do de cima que é pai, como no HTML.
+
