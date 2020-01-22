@@ -7,15 +7,30 @@ import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 
 const Routes = createAppContainer(
-  createStackNavigator({
-    Main: {
-      screen: Main,
-      navigationOptions: {
-        title: 'Página inicial'
+  createStackNavigator(
+    {
+      Main: {
+        screen: Main,
+        navigationOptions: {
+          title: "Página inicial"
+        }
+      },
+      Profile: {
+        screen: Profile,
+        navigationOptions: {
+          title: "Perfil no GitHub"
+        }
       }
     },
-    Profile
-  })
+    {
+      defaultNavigationOptions: {
+        headerTintColor: "#FFF",
+        headerStyle: {
+          backgroundColor: "#7D40E7"
+        }
+      }
+    }
+  )
 );
 
 export default Routes;
