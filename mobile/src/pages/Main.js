@@ -9,7 +9,7 @@ import {
 
 import MapView, { Marker, Callout } from "react-native-maps";
 
-function Main() {
+function Main({ navigation }) {
   const [currentRegion, setCurrentRegion] = useState(null);
   useEffect(() => {
     async function loadInitialPosition() {
@@ -45,7 +45,13 @@ function Main() {
             uri: "https://avatars3.githubusercontent.com/u/18177236?s=460&v=4"
           }}
         />
-        <Callout style={styles.callout}>
+        <Callout
+          style={styles.callout}
+          onPress={() => {
+            //navegação
+            navigation.navigate("Profile", ({ github_username: "diego3g"}));
+          }}
+        >
           <View>
             <Text style={styles.devName}>Vinícius Augutis</Text>
             <Text style={styles.devBio}>Amante de tecnologia</Text>

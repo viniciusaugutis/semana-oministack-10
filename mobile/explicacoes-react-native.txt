@@ -60,3 +60,7 @@ expo install react-native-maps: Instalar maps no expo
 
 
 expo install expo-location: Expo location para geolocalizacao
+
+onPress: igual ao onClick no react js
+
+Propriedade navigation vem de forma automatica para todas paginas da aplicação

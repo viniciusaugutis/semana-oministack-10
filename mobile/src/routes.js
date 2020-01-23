@@ -26,6 +26,7 @@ const Routes = createAppContainer(
     {
       defaultNavigationOptions: {
         headerTintColor: "#FFF",
+        headerBackTitleVisible: false,
         headerStyle: {
           backgroundColor: "#7D40E7"
         }
