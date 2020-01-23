@@ -13,6 +13,7 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 
 import api from "../services/api";
+import { connect, disconnect } from "../services/socket";
 
 import {
   requestPermissionsAsync,
@@ -24,6 +25,12 @@ import MapView, { Marker, Callout } from "react-native-maps";
 function Main({ navigation }) {
   const [devs, setDevs] = useState([]);
   const [techs, setTechs] = useState("");
+
+  function setupWebsocket() {
+    const { latitude, longitude } = currentRegion;
+    connect(latitude, longitude, techs);
+  }
+
   async function loadDevs() {
     const { latitude, longitude } = currentRegion;
     const response = await api.get("/search", {
@@ -34,6 +41,7 @@ function Main({ navigation }) {
       }
     });
     setDevs(response.data.devs);
+    setupWebsocket();
     console.log(response.data.devs);
   }
 
