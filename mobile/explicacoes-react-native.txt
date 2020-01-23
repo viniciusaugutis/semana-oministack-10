@@ -56,3 +56,7 @@ Navegação por pilhas: react navigation stack - navegação via botão, clica e
 
 1: yarn add react-navigation-stack @react-native-community/masked-view react-native-safe-area-context
 
+expo install react-native-maps: Instalar maps no expo
+
+
+expo install expo-location: Expo location para geolocalizacao
