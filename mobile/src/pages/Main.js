@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View, Text } from "react-native";
 
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync
 } from "expo-location";
 
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Callout } from "react-native-maps";
 
 function Main() {
   const [currentRegion, setCurrentRegion] = useState(null);
@@ -39,11 +39,19 @@ function Main() {
   return (
     <MapView style={styles.map} initialRegion={currentRegion}>
       <Marker coordinate={{ latitude: -23.330642, longitude: -51.1899153 }}>
-        <Image style = {styles.avatar}
+        <Image
+          style={styles.avatar}
           source={{
             uri: "https://avatars3.githubusercontent.com/u/18177236?s=460&v=4"
           }}
         />
+        <Callout style={styles.callout}>
+          <View>
+            <Text style={styles.devName}>Vinícius Augutis</Text>
+            <Text style={styles.devBio}>Amante de tecnologia</Text>
+            <Text style={styles.devTechs}>NodeJS, Angular, Java</Text>
+          </View>
+        </Callout>
       </Marker>
     </MapView>
   );
@@ -58,7 +66,21 @@ const styles = StyleSheet.create({
     height: 54,
     borderRadius: 4,
     borderWidth: 4,
-    borderColor: '#FFF' 
+    borderColor: "#FFF"
+  },
+  callout: {
+    width: 260
+  },
+  devName: {
+    fontWeight: "bold",
+    fontSize: 16
+  },
+  devBio: {
+    color: "#666",
+    marginTop: 5
+  },
+  devTechs: {
+    marginTop: 5
   }
 });
 
