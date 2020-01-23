@@ -66,3 +66,7 @@ onPress: igual ao onClick no react js
 Propriedade navigation vem de forma automatica para todas paginas da aplicação
 
 expo install react-native-webview: WEBVIEW para paginas da WEB (tipo wireframe)
+
+Não existe tag de form no ReactNative, importa o TextInput
+
+Expo possui por padrão todos os pacotes de icones famosos no mercado @vector-icons
