@@ -64,3 +64,5 @@ expo install expo-location: Expo location para geolocalizacao
 onPress: igual ao onClick no react js
 
 Propriedade navigation vem de forma automatica para todas paginas da aplicação
+
+expo install react-native-webview: WEBVIEW para paginas da WEB (tipo wireframe)

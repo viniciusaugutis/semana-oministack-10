@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { StyleSheet, Image, View, Text } from "react-native";
 
+
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync
@@ -49,7 +50,7 @@ function Main({ navigation }) {
           style={styles.callout}
           onPress={() => {
             //navegação
-            navigation.navigate("Profile", ({ github_username: "diego3g"}));
+            navigation.navigate("Profile", { github_username: "viniciusaugutis" });
           }}
         >
           <View>
