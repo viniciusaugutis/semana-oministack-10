@@ -13,7 +13,7 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 
 import api from "../services/api";
-import { connect, disconnect } from "../services/socket";
+import { connect, disconnect, subscribeToNewDevs } from "../services/socket";
 
 import {
   requestPermissionsAsync,
@@ -26,7 +26,12 @@ function Main({ navigation }) {
   const [devs, setDevs] = useState([]);
   const [techs, setTechs] = useState("");
 
+  useEffect(() => {
+    subscribeToNewDevs(dev => setDevs([...devs, dev]))
+  }, [devs]);
+
   function setupWebsocket() {
+    disconnect();
     const { latitude, longitude } = currentRegion;
     connect(latitude, longitude, techs);
   }
@@ -50,6 +55,7 @@ function Main({ navigation }) {
   }
 
   const [currentRegion, setCurrentRegion] = useState(null);
+
   useEffect(() => {
     async function loadInitialPosition() {
       const { granted } = await requestPermissionsAsync();
